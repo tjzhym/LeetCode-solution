@@ -1,6 +1,6 @@
 // Problem :    https://leetcode.com/problems/two-sum/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
-// Author :     zhym
+// Author :     zhym (tjzhym)
 // Date   :     2021-5-28
 
 
