@@ -1,7 +1,7 @@
-// Problem :    https://leetcode.com/problems/string-to-integer-atoi/
-// Solution:    https://github.com/tjzhym/LeetCode-solution
-// Author :     zhym (tjzhym)
-// Date   :     2021-7-24
+# Problem :    https://leetcode.com/problems/string-to-integer-atoi/
+# Solution:    https://github.com/tjzhym/LeetCode-solution
+# Author :     zhym (tjzhym)
+# Date   :     2021-7-24
 
 
 class Solution:
