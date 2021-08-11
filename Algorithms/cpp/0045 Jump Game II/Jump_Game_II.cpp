@@ -10,21 +10,21 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         int target = nums.size() - 1;
-        int currentEnd = 0;
+        int currentReach = 0;
         int maxReach = 0;
         int step = 0;
 
-        if (nums.size() <= 1) {
+        if (nums.size() < 2) {
             return 0;
         }
 
-        for (int i = 0; i < target; i++) {
-            maxReach = max(maxReach, nums[i] + i);
-            if (i == currentEnd) {
+        for (int index = 0; index < target; index++) {
+            maxReach = max(maxReach, index + nums[index]);
+            if (index == currentReach) {
                 step++;
-                currentEnd = maxReach;
+                currentReach = maxReach;
             }
-        };
+        }
         return step;
     }
 };
