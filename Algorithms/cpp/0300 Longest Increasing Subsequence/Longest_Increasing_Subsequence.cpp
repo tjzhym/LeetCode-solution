@@ -1,31 +1,40 @@
-// Problem :    https://leetcode.com/problems/longest-increasing-subsequence/
+// Problem :    https://leetcode.com/problems/remove-k-digits/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
 // Date   :     2021-8-13
 
 #include <vector>
-#include <algorithm>
+#include <string>
 using namespace std;
 
 class Solution {
 public:
-    int lengthOfLIS(vector<int>& nums) {
-        if (nums.size() == 0) {
-            return 0;
+    string removeKdigits(string num, int k) {
+        if (num.size() <= k) {
+            return "0";
         }
-
-        vector<int> dp(nums.size(), 0);
-        for (int index = 0; index < nums.size(); index++) {
-            dp[index] = 1;
-            for (int preIndex = 0; preIndex < index; preIndex++) {
-                if (nums[index] > nums[preIndex]) {
-                    dp[index] = max(dp[index], dp[preIndex] + 1);
-                }
+        vector<char> numberVector;
+        for (auto digit : num) {
+            while (!numberVector.empty() && k && numberVector.back() > digit) {
+                numberVector.pop_back();
+                k--;
             }
+            numberVector.push_back(digit);
+        }
+        for (; k > 0; k--) {
+            numberVector.pop_back();
         }
 
-        return *max_element(dp.begin(), dp.end());;
-
+        bool isLeadingZero = true;
+        string numberString;
+        for (auto digit : numberVector) {
+            if (digit == '0' && isLeadingZero) {
+                continue;
+            }
+            isLeadingZero = false;
+            numberString += digit;
+        }
+        return numberString.empty() ? "0" : numberString;
     }
 };
 
