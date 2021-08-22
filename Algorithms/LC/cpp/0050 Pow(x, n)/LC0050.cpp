@@ -1,7 +1,7 @@
-// Problem :    https://leetcode.com/problems/jump-game-ii/
+// Problem :    https://leetcode.com/problems/powx-n/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
-// Date   :     2021-8-9
+// Date   :     2021-8-22
 
 #include <vector>
 using namespace std;
