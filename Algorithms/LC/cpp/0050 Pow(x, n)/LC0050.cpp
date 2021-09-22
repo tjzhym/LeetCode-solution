@@ -3,33 +3,29 @@
 // Author :     zhym (tjzhym)
 // Date   :     2021-8-22
 
+#include <vector>
+using namespace std;
 
 class Solution {
 public:
-    double myPow(double x, int n) {
-        double powResult = 1;
+    int jump(vector<int>& nums) {
+        int target = nums.size() - 1;
+        int currentReach = 0;
+        int maxReach = 0;
+        int step = 0;
 
-        if (x == 0.0) {
-            return 0.0;
-        }
-        else if (x == 1.0 || n == 0) {
-            return 1.0;
-        }
-        else if (n < 0) {
-            x = 1 / x;
-            powResult *= x;
-            n += 1;
-            n = -n;
+        if (nums.size() < 2) {
+            return 0;
         }
 
-        while (n) {
-            if (n & 1) {
-                powResult *= x;
+        for (int index = 0; index < target; index++) {
+            maxReach = max(maxReach, index + nums[index]);
+            if (index == currentReach) {
+                step++;
+                currentReach = maxReach;
             }
-            x *= x;
-            n >>= 1;
         }
-        return powResult;
+        return step;
     }
 };
 
