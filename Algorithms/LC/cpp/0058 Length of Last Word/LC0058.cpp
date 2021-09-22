@@ -1,7 +1,7 @@
-// Problem :    https://leetcode.com/problems/powx-n/
+// Problem :    https://leetcode.com/problems/length-of-last-word/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
-// Date   :     2021-8-22
+// Date   :     2021-9-22
 
 
 class Solution {
