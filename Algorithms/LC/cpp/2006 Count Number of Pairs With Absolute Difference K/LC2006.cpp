@@ -1,7 +1,7 @@
 // Problem :    https://leetcode-cn.com/problems/count-number-of-pairs-with-absolute-difference-k/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
-// Date   :     2021-2-9
+// Date   :     2022-2-9
 
 
 #include <vector>
