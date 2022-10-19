@@ -1,4 +1,4 @@
-// Problem :    https://leetcode.com/problems/reformat-phone-number/description/
+// Problem :    https://leetcode.com/problems/reformat-phone-number/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
 // Date   :     2022-10-1
