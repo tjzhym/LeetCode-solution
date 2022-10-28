@@ -1,36 +1,31 @@
 // Problem :    https://leetcode.com/problems/next-greater-element-i/
 // Solution:    https://github.com/tjzhym/LeetCode-solution
 // Author :     zhym (tjzhym)
-// Date   :     2021-10-25
+// Date   :     2022-10-28
 
 
+#include <stack>
+#include <unordered_map>
 #include <vector>
-using namespace std;
 
 
 class Solution {
 public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> outputVector;
-        for (auto it1 = nums1.begin(); it1 != nums1.end(); ++it1) {
-            int findIndex = 0;
-            while (nums2[findIndex] != *it1) {
-                ++findIndex;
+	std::vector<int> nextGreaterElement(std::vector<int>& nums1, std::vector<int>& nums2) {
+		std::unordered_map<int, int> hashmap;
+		std::stack<int> mono_stack;
+        for (int index = nums2.size() - 1; index >= 0; --index) {
+            int num = nums2[index];
+            while (!mono_stack.empty() && num > mono_stack.top()) {
+                mono_stack.pop();
             }
-            while (findIndex < nums2.size()) {
-                if (nums2[findIndex] > *it1) {
-                    break;
-                }
-                ++findIndex;
-            }
-            if (findIndex == nums2.size()) {
-                outputVector.push_back(-1);
-            } else {
-                outputVector.push_back(nums2[findIndex]);    
-            }
+            hashmap[num] = mono_stack.empty() ? -1 : mono_stack.top();
+            mono_stack.push(num);
         }
-        return outputVector;
+        std::vector<int> greater_list(nums1.size());
+        for (int index = 0; index < nums1.size(); ++index) {
+            greater_list[index] = hashmap[nums1[index]];
+        }
+        return greater_list;
     }
 };
-
-// Bruce Force
